@@ -38,6 +38,9 @@ public class JSON {
     }
     
     public List<Password> fromJson(String json) {
+        if (json == null || json.isEmpty()) {
+            return List.of();
+        }
         Type passwordType = new TypeToken<List<Password>>() {}.getType();
         return gson.fromJson(json,passwordType);
     }
